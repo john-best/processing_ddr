@@ -12,6 +12,7 @@ public abstract class Floater //Do NOT modify the Floater class! Make changes in
     protected PImage img, img2, img3;
     protected PImage[] arrowImgs = new PImage[16];
     protected int count;
+    protected int FPB;
     public Floater(PApplet applet_)
     {
         applet = applet_;
@@ -27,7 +28,7 @@ public abstract class Floater //Do NOT modify the Floater class! Make changes in
 
     abstract public void setY(int y);   
 
-    abstract public int getY();   
+    abstract public double getY();   
     
     abstract public void setDirectionY(double y);
     
@@ -38,27 +39,8 @@ public abstract class Floater //Do NOT modify the Floater class! Make changes in
     public PImage[] getColorArrayList() { return arrowImgs; }
 
     public void move()   //move the floater in the current direction of travel
-    {      
-        //change the x and y coordinates by myDirectionX and myDirectionY          
+    {              
         myCenterY += myDirectionY;     
-
-        //wrap around screen    
-        if(myCenterX > applet.width)
-        {     
-            myCenterX = 0;    
-        }    
-        else if (myCenterX < 0)
-        {     
-            myCenterX = applet.width;    
-        }    
-        if(myCenterY > applet.height)
-        {    
-            myCenterY = 0;    
-        }   
-        else if (myCenterY < 0)
-        {     
-            myCenterY = applet.height;    
-        }   
     }   
 
     public void show ()  //Draws the floater at the current position  
